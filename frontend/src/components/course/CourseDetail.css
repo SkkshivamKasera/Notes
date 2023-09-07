@@ -1,0 +1,118 @@
+.course_detail_container{
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    color: blueviolet;
+}
+
+.course_detail_box{
+    height: 70vh;
+    width: 80%;
+    display: flex;
+}
+
+.course_detail_container_img_box{
+    width: 100%;
+    height: 100%;
+    border-right: 2px solid black;
+}
+
+.course_detail_container_img_box > img{
+    width: 100%;
+    height: 100%;
+}
+
+.course_detail_container_content_box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+#h1_id{
+    text-align: center;
+    border-bottom: 4px solid black;
+    margin-top: -30px;
+}
+
+#p1_id{
+    font-size: 20px;
+    text-align: center;
+}
+
+#p2_id{
+    font-size: 25px;
+    text-align: center;
+    margin-top: -50px;
+}
+
+.course_detail_container_content_box > button{
+    background-color: transparent;
+    color: blueviolet;
+    padding: 1vmax 4vmax;
+    margin-bottom: 20px;
+    margin-top: -40px;
+    transition: all 0.5s;
+}
+
+.course_detail_container_content_box > button:hover{
+    background-color: blueviolet;
+    color: white;
+}
+
+@media screen and (max-width: 900px) {
+    .course_detail_container{
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        height: 73vh;
+    }
+
+    .course_detail_container > .course_detail_box{
+        flex-direction: column;
+    }
+
+    #h1_id{
+        text-align: center;
+        border-bottom: 4px solid black;
+        margin-top: 0;
+        padding: 1vmax 0;
+    }
+    
+    #p1_id{
+        font-size: 20px;
+        text-align: center;
+        padding: 1vmax 0;
+    }
+    
+    #p2_id{
+        font-size: 25px;
+        text-align: center;
+        padding: 1vmax 0;
+        margin: 0;
+    }
+
+    .course_detail_container_content_box > button{
+        background-color: transparent;
+        color: blueviolet;
+        padding: 1vmax 4vmax;
+        margin-top: 10px;
+        transition: all 0.5s;
+    }
+    
+    .course_detail_container_content_box > button:hover{
+        background-color: blueviolet;
+        color: white;
+    }
+}
+
+@media (max-width: 900px) and (orientation: landscape){
+    .course_detail_container{
+        height: 150vh;
+    }
+}

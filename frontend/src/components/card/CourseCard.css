@@ -1,0 +1,117 @@
+*{
+    box-sizing: border-box;
+}
+
+.course_card ::-webkit-scrollbar {
+    width: 3px;
+}
+.course_card ::-webkit-scrollbar-thumb {
+    background-color: blueviolet;
+    border-radius: 3px;
+}
+
+.course_card{
+    background: white;
+    box-shadow: 0 0 10px gray;
+    width: 390px;
+    margin: 43px;
+    border-radius: 15px;
+    color: blueviolet;
+}
+
+.course_card {
+    position: relative;
+}
+
+.course_badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 100%;
+    font-weight: bold;
+}
+
+.enroll_badge{
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    color: green;
+    font-weight: bolder;
+    box-shadow: 0 0 10px gray;
+}
+
+.course_img_box{
+    background-color: aqua;
+    height: 170px;
+    margin-bottom: 15px;
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+}
+
+.course_img_box > img{
+    width: 100%;
+    height: 174px;
+}
+
+#paid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.course_content{
+    height: 200px;
+    background-color: white;
+    position: relative;
+    z-index: 0;
+    overflow: auto;
+}
+
+.course_content > h5{
+    text-align: center;
+    font-weight: bolder;
+}
+
+.course_content > p{
+    text-align: center;
+    font-weight: 600;
+}
+
+.course_card > a{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5vmax;
+    box-shadow: 0 0 20px gray;
+    border-radius: 0 0 15px 15px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: blueviolet;
+    background-color: white;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+.course_card > a:hover{
+    color: white;
+    background-color: blueviolet;
+}
+
+@media screen and (max-width: 900px) {
+}
+
+@media screen and (max-width: 600px) {
+    .course_card{
+        margin: 20px 40px;
+    }
+}

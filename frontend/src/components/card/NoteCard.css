@@ -1,0 +1,59 @@
+.note_card{
+    width: 263.4px;
+    height: 350px;
+    max-width: 263.4px;
+    max-height: 409.6px;
+    box-shadow: 0 0 10px blueviolet;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px;
+    border-radius: 10px;
+}
+
+h5{
+    text-align: center;
+}
+
+.note_card > .note_card_contant{
+    width: 213px;
+    height: 332px;
+    max-width: 213px;
+    max-height: 332px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.note_card > .note_card_contant > img{
+    width: 96px;
+    height: 96px;
+    border-radius: 100%;
+}
+
+.note_card > .note_card_contant > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: blueviolet;
+}
+
+.note_card > .note_card_contant > div > a{
+    width: 100%;
+    text-decoration: none;
+    border: 2px solid blueviolet;
+    padding: 0.5vmax 0.5vmax;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    border-radius: 20px;
+    color: blueviolet;
+    transition: all 0.5s;
+}
+
+.note_card > .note_card_contant > div > a:hover{
+    color: white;
+    background-color: blueviolet;
+}

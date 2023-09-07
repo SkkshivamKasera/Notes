@@ -1,0 +1,47 @@
+.footer{
+    height: 80px;
+    max-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    box-shadow: 0 0 10px gray;
+    overflow: hidden;
+}
+
+.footer .logo_text{
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 20px;
+}
+
+.footer .logo_text img{
+    width: 80px;
+    margin-right: 2px;
+    border-radius: 100%;
+    margin-top: 2px;
+}
+
+.footer .logo_text > span{
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+#copyright{
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.558);
+}
+
+.media_apps{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.media_apps > abbr{
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 20px;
+}

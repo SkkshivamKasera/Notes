@@ -1,0 +1,212 @@
+.login_container {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0%;
+    left: 0;
+}
+
+.login_box {
+    height: 80vh;
+    display: flex;
+    box-shadow: 0 0 10px blueviolet;
+}
+
+.login_box .img_box {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.login_box .img_box img {
+    width: 100%;
+    height: 100%;
+}
+
+.login_box .form_box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.login_box .form_box h1,
+.login_box .form_box h3 {
+    color: blueviolet;
+}
+
+.login_box .form_box img {
+    width: 100px;
+}
+
+.login_box .form_box .login_form {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login_box .form_box .login_form .input_box1 {
+    width: 80%;
+    margin: 20px;
+}
+
+.login_box .form_box .login_form .input_box1 span {
+    font-size: 20px;
+    font-weight: bolder;
+    color: blueviolet;
+}
+
+.login_box .form_box .login_form .input_box1 input {
+    width: 100%;
+    padding: 0.5vmax 1vmax;
+    background-color: rgba(211, 211, 211, 0.445);
+    color: blueviolet;
+    font-weight: bolder;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+}
+
+.login_box .form_box .login_form .input_box2 {
+    width: 80%;
+    margin: -30px;
+}
+
+.login_box .form_box .login_form .input_box2 span {
+    font-size: 20px;
+    font-weight: bolder;
+    color: blueviolet;
+}
+
+.login_box .form_box .login_form .input_box2 a {
+    color: blueviolet;
+    text-decoration: none;
+}
+
+.login_box .form_box .login_form .input_box2 input {
+    width: 100%;
+    padding: 0.5vmax 1vmax;
+    background-color: rgba(211, 211, 211, 0.445);
+    color: blueviolet;
+    font-weight: bolder;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+}
+
+.login_box .form_box .login_form .input_box2 input:focus {
+    outline: 2px solid blueviolet;
+}
+
+.login_box .form_box .login_form .input_box1 input:focus {
+    outline: 2px solid blueviolet;
+}
+
+.login_btn {
+    margin-top: 40px;
+    width: 80%;
+    padding: 0.5vmax 2vmax;
+    background-color: transparent;
+    border: 2px solid blueviolet;
+    color: blueviolet;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: all 0.5s;
+}
+
+.login_btn:hover {
+    background-color: blueviolet;
+    color: white;
+}
+
+.s_o_f {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+.s_o_f a {
+    text-decoration: none;
+    padding-bottom: 20px;
+    color: blueviolet;
+}
+
+@media screen and (max-width: 900px) {
+    .login_container {
+        width: 100%;
+        height: 80vh;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+    }
+
+    .login_box {
+        width: 100%;
+        margin: 0 20px;
+    }
+
+    .login_box .img_box {
+        display: none;
+    }
+
+    .login_box .img_box>img {
+        display: none;
+    }
+
+    .login_box .form_box {
+        width: 100%;
+    }
+
+    .login_box .form_box .login_form {
+        height: 80vh;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+
+    .login_box .form_box .login_form .input_box1 {
+        width: 100%;
+    }
+
+    .login_box .form_box .login_form .input_box1 input {
+        width: 100%;
+        padding: 0.5vmax 1vmax;
+        background-color: rgba(211, 211, 211, 0.445);
+        color: blueviolet;
+        font-weight: bolder;
+        border: none;
+        border-radius: 10px;
+        outline: none;
+    }
+
+    .login_box .form_box .login_form .input_box2 {
+        width: 100%;
+    }
+
+    .login_btn{
+        width: 100%;
+    }
+
+    .s_o_f {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .s_o_f a {
+        text-decoration: none;
+        padding-bottom: 120px;
+        color: blueviolet;
+    }
+
+}

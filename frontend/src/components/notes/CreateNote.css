@@ -1,0 +1,81 @@
+.create_note_container{
+    width: 100vw;
+    height: 80vh;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.create_note_box{
+    width: 80%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.create_note_img_box{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    border-radius: 100%;
+}
+
+.create_note_img_box > img{
+    width: 100px;
+    height: 100px;
+}
+
+.create_corse_form_box{
+    width: 100%;
+}
+
+.create_note_form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.create_note_input_box{
+    width: 100%;
+}
+
+.input_common_note > input{
+    width: 100%;
+    padding: 1vmax 2vmax;
+    margin-top: 20px;
+    border: 2px solid blueviolet;
+    border-radius: 20px;
+    outline: none;
+}
+
+.create_note_btn{
+    background-color: transparent;
+    color: blueviolet;
+    width: 80%;
+    padding: 0.5vmax 2vmax;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    transition: all 0.5s;
+}
+
+.create_note_btn:hover{
+    background-color: blueviolet;
+    color: white;
+}
+
+@media (orientation: landscape){
+    .create_note_container{
+        height: 100vh;
+    }
+    .create_corse_form_box{
+        margin-top: 100px;
+    }
+}

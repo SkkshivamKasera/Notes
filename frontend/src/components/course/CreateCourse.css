@@ -1,0 +1,120 @@
+.create_course_container{
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0%;
+    left: 0;
+}
+
+.create_course_box{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 160px;
+}
+
+.create_course_box > .create_course_img_box{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.create_course_box > .create_course_img_box > img{
+    width: 100%;
+    height: 100%;
+}
+
+.create_corse_form_box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create_course_form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.create_course_input_box{
+    width: 90%;
+    margin-top: 10px;
+}
+
+.input_common > input{
+    width: 100%;
+    padding: 0.5vmax 1vmax;
+    border-radius: 20px;
+    outline: none;
+}
+
+.checkbox_class{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input[type="file"]{
+    color: transparent;
+}
+
+::-webkit-file-upload-button{
+    width: 100%;
+    background-color: blueviolet;
+    color: white;
+    padding: 0.5vmax 0;
+    margin-top: -10px;
+}
+
+.create_course_btn{
+    width: 80%;
+    background-color: transparent;
+    color: blueviolet;
+    transition: all 0.5s;
+    border: 2px solid blueviolet;
+    padding: 0.5vmax 0;
+    margin: 10px 0;
+}
+
+.create_course_btn:hover{
+    background-color: blueviolet;
+    color: white;
+}
+
+@media screen and (max-width: 900px) {
+    .create_course_container{
+        height: 80vh;
+    }
+
+    .create_course_box{
+        flex-direction: column;
+    }
+    
+    .create_course_box > .create_course_img_box{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        border-radius: 100%;
+    }
+
+    .create_course_box > .create_course_img_box > img{
+        border-radius: 100%;
+    }
+
+    .input_common > input{
+        padding: 1vmax 3vmax;
+        font-size: 20px;
+    }
+}

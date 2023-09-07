@@ -1,0 +1,21 @@
+.greenColor{
+    color: rgba(11, 141, 11, 0.936);
+    font-weight: bolder;
+}
+
+.redColor{
+    color: red;
+    font-weight: bolder;
+}
+
+.backgroundRedColor{
+    background-color: red;
+}
+
+.backgroundGreenColor{
+    background-color: green;
+}
+
+#disable{
+    cursor: not-allowed;
+}

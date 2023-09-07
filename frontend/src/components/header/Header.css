@@ -1,0 +1,277 @@
+.header{
+    height: 141px;
+    max-height: 141px;
+    box-shadow: 0 0 10px gray;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 100;
+}
+
+.header span{
+    font-size: 25px;
+    margin-top: 23px;
+    margin-left: 15px;
+    font-weight: bolder;
+    color: blueviolet;
+}
+
+.header .div1{
+    max-height: 72px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header .div1 div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 43px;
+}
+
+.header > .div1 > div > ul{
+    display: flex;
+    margin: 23px;
+}
+
+.header > .div1 > div > ul > li{
+    display: flex;
+    margin: 23px;
+    text-decoration: none;
+    list-style: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: blueviolet;
+    transition: all 0.5s;
+}
+
+.header >.div1 > div > ul > li:hover{
+    transform: translateY(-5px);
+}
+
+.header > .div1 > div > ul > li > a{
+    text-decoration: none;
+    color: blueviolet;
+}
+
+.header > .div1 > div > a{
+    text-decoration: none;
+    margin: 10px;
+    padding: 0.5vmax 2vmax;
+    background-color: transparent;
+    border: 2px solid blueviolet;
+    outline: none;
+    color: blueviolet;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background 0.5s;
+}
+
+.header .div1 > div > a:hover{
+    background-color: blueviolet;
+    color: white;
+}
+
+.profile_div{
+    margin-left: 0px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 100%;
+}
+
+.profile_div img{
+    width: 100px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.profile_div > ul{
+    display: none;
+    background-color: white;
+    box-shadow: 0 0 10px gray;
+    width: 120px;
+    height: 100px;
+    z-index: 100;
+}
+
+#profile_ul > a{
+    transition: all 0.5s;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: blueviolet;
+}
+
+.profile_div > ul > a > li{
+    text-decoration: none;
+    list-style: none;
+    color: blueviolet;
+    background-color: white;
+}
+
+.profile_div > ul > a:hover{
+    background-color: blueviolet;
+}
+
+.profile_div > ul > a > li:hover{
+    color: black;
+}
+
+.header .div2{
+    height: 40px;
+    max-height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.header .div2 i{
+    color: blueviolet;
+    cursor: pointer;
+    padding-bottom: 20px;
+}
+
+.header .div2 ul{
+    display: flex;
+}
+
+.header .div2 ul li{
+    text-decoration: none;
+    list-style-type: none;
+    margin: 20px;
+    font-weight: bold;
+    color: blueviolet;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.header .div2 ul li a{
+    text-decoration: none;
+    color: blueviolet;
+}
+
+.header .div2 ul li:hover{
+    transform: translateY(-5px);
+}
+
+.search_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search_input{
+    margin-bottom: 20px;
+    outline: none;
+    visibility: hidden;
+    padding-left: 10px;
+    font-weight: bold;
+    position: absolute;
+    margin-right: 190px;
+    border: none;
+    box-shadow: 0 0 3px blueviolet;
+    border: 2px solid blueviolet;
+    border-radius: 5px;
+}
+
+.search_input:focus {
+    border: 2px solid blueviolet;
+}
+
+.fa-magnifying-glass{
+    position: absolute;
+}
+
+.light-dark-mode{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -40px;
+}
+
+.light-dark-mode > i{
+    font-size: 30px;
+    color: blueviolet;
+    cursor: pointer;
+}
+
+.menu_bar{
+    display: none;
+}
+
+.header .div1 div .menu_div{
+    display: none;
+}
+
+@media screen and (max-width: 900px) {
+    .header{
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .menu_bar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1vmax 1vmax;
+        background: transparent;
+        position: absolute;
+        right: 0;
+        margin-right: 10px;
+        color: blueviolet;
+        border: none;
+        font-size: 30px;
+    }
+
+    .header > .div1 > div > ul{
+        display: none;
+    }
+
+    .header > .div1 > div > a{
+        text-decoration: none;
+        margin: 10px;
+        margin-left: -10px;
+        padding: 0.5vmax 2vmax;
+        background-color: transparent;
+        border: 2px solid blueviolet;
+        outline: none;
+        color: blueviolet;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 600;
+        transition: background 0.5s;
+    }
+    
+    .header .div1 > div > a:hover{
+        background-color: blueviolet;
+        color: white;
+    }
+    
+    .header  .div2{
+        display: none;
+    }
+
+    .light-dark-mode{
+        display: none;
+    }
+
+    .light-dark-mode > i{
+        display: none;
+    }
+
+    .profile_div{
+        display: none;
+    }
+
+    .profile_div > img{
+        display: none;
+    }
+}

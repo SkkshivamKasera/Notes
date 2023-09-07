@@ -1,0 +1,21 @@
+.heading{
+    text-align: center;
+}
+
+.notes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 900px){
+    .notes{
+        width: 100%;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .heading{
+        padding-top: 20px;
+    }
+}
