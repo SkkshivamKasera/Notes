@@ -12,7 +12,7 @@ const NoteCard = ({name, img}) => {
             <span>Download Notes Here</span>
         </div>
         <div>
-            <Link target='_blank' to={`http://localhost:5000/api/v1/notes/${name}.pdf`}>Pdf Notes</Link>
+            <Link target='_blank' to={`https://notes-y8nr.onrender.com/api/v1/notes/${name}.pdf`}>Pdf Notes</Link>
             <a href='#'>Chapterwise Notes</a>
         </div>
       </div>
