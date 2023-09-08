@@ -28,7 +28,6 @@ function App() {
   const [isOpen, setIsOpen] = useState(false)
   const [loadCourses, setLoadCourses] = useState(false)
   const [loadNotes, setLoadNotes] = useState(false)
-  const [loadMyCourses, setLoadMyCourses] = useState(false)
   const [alert, setAlert] = useState({type: null, message: null})
   const dispatch = useDispatch()
   const { loading, error, message, isAuthenticated, user } = useSelector(state=>state.user)
@@ -143,7 +142,7 @@ function App() {
         <Route exact path='/notes' element={<Notes setLoadCourses={setLoadCourses} setLoadUser={setLoadUser}/>}/>
         <Route exact path='/courses' element={<Courses setLoadCourses={setLoadCourses} setLoadUser={setLoadUser} setProgress={setProgress}/>}/>
         <Route exact path='/admin/new' element={user ? user.role === "admin" && <CreateCourse setProgress={setProgress} setLoadCourses={setLoadCourses}/> : <Home/>}/>
-        <Route exact path='/admin/note/new' element={user ? user.role === "admin" && <CreateNote setProgress={setProgress} setLoadNotes={setLoadNotes}/> : <Home/>}/>
+        <Route exact path='/admin/note/new' element={user ? user.role === "admin" && <CreateNote showAlert={showAlert} setProgress={setProgress} setLoadNotes={setLoadNotes}/> : <Home/>}/>
         <Route exact path='/course/:id' element={<CourseDetail user={user} setProgress={setProgress} setLoadCourses={setLoadCourses}/>}/>
         <Route exact path='/profile' element={<MyProfile/>}/>
         <Route exact path='/mycourses' element={<MyCourses/>}/>

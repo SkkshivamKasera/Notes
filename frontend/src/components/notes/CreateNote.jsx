@@ -3,33 +3,52 @@ import { useDispatch } from 'react-redux'
 import "./CreateNote.css"
 import { createNote } from '../../actions/courseAction'
 
-const CreateNote = ({setProgress, setLoadNotes}) => {
+const CreateNote = ({ showAlert, setProgress, setLoadNotes }) => {
     const [name, setName] = useState("")
     const [img, setIMG] = useState("https://www.codewithharry.com/img/notes/python.webp")
+    const [pdf, setPDF] = useState("")
 
     const dispatch = useDispatch()
 
     const imgChange = (e) => {
         if (e.target.name === 'img') {
-          const reader = new FileReader();
-          reader.onload = () => {
-            if (reader.readyState === 2) {
-              setIMG(reader.result);
-            }
-          };
-          reader.readAsDataURL(e.target.files[0]);
+            const reader = new FileReader();
+            reader.onload = () => {
+                if (reader.readyState === 2) {
+                    setIMG(reader.result);
+                }
+            };
+            reader.readAsDataURL(e.target.files[0]);
         }
-      };
+    };
 
-      const createCourseHandler = async (e) => {
+    const handleFileChange = (e) => {
+        if (e.target.name === 'pdf') {
+            const selectedFile = e.target.files[0];
+            if (selectedFile && selectedFile.type === 'application/pdf') {
+                const reader = new FileReader();
+                reader.onload = () => {
+                if (reader.readyState === 2) {
+                    setPDF(reader.result);
+                }
+            };
+            reader.readAsDataURL(e.target.files[0]);
+            } else {
+                showAlert("danger", 'Please select a valid PDF file.')
+            }
+        }
+    }
+
+    const createCourseHandler = async (e) => {
         setProgress(20)
         e.preventDefault()
         setProgress(50)
-        await dispatch(createNote(name, img))
+        console.log(pdf)
+        await dispatch(createNote(name, img, pdf))
         setProgress(70)
         setLoadNotes(false)
         setProgress(100)
-      }
+    }
 
     return (
         <div className='create_note_container'>
@@ -43,10 +62,19 @@ const CreateNote = ({setProgress, setLoadNotes}) => {
                             <input type='text' placeholder='Notes Name' required value={name} onChange={(e) => setName(e.target.value)} />
                         </div>
                         <div className='create_note_input_box input_common_note'>
-                            <input type='text' value={img} onChange={(e)=>setIMG(e.target.value)} required />
+                            <input type='text' value={img} onChange={(e) => setIMG(e.target.value)} required />
                         </div>
                         <div className='create_note_input_box input_common_note'>
-                            <input style={{border: "none"}} type='file' name='img' accept='image/*' onChange={imgChange} />
+                            <input style={{ border: "none" }} type='file' name='img' accept='image/*' onChange={imgChange} />
+                        </div>
+                        <div className='create_note_input_box input_common_note'>
+                            <input
+                                style={{ border: "none" }}
+                                type='file'
+                                name='pdf'
+                                accept='application/pdf'
+                                onChange={handleFileChange}  
+                            />
                         </div>
                         <button className='create_note_btn' type='submit'>Create Course</button>
                     </form>

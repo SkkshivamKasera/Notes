@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const server_link = "https://notes-y8nr.onrender.com"
+const live_server_link = "https://notes-y8nr.onrender.com"
+// const live_server_link = "http://localhost:5000"
 const config1 = {
     headers: {
         "Content-Type": "application/json"
@@ -14,7 +15,7 @@ const config2 = {
 export const login = (email, password) => async (dispatch) => {
     try{
         dispatch({type: "LoginRequest"})
-        const { data } = await axios.post(`${server_link}/api/v1/login`, {
+        const { data } = await axios.post(`${live_server_link}/api/v1/login`, {
             email, password
         },config1)
         dispatch({type: "LoginSuccess", payload: data.message})
@@ -31,7 +32,7 @@ export const login = (email, password) => async (dispatch) => {
 export const signup = (name, email, password) => async (dispatch) => {
     try{
         dispatch({type: "SignUpRequest"})
-        const { data } = await axios.post(`${server_link}/api/v1/register`, {
+        const { data } = await axios.post(`${live_server_link}/api/v1/register`, {
             name, email, password
         },config1)
         dispatch({type: "SignUpSuccess", payload: data.message})
@@ -48,7 +49,7 @@ export const signup = (name, email, password) => async (dispatch) => {
 export const loaduser = () => async (dispatch) => {
     try{
         dispatch({type: "GetUserRequest"})
-        const { data } = await axios.get(`${server_link}/api/v1/me`,config2)
+        const { data } = await axios.get(`${live_server_link}/api/v1/me`,config2)
         dispatch({type: "GetUserSuccess", payload: data.user})
     }catch(error){
         if(error.response){
@@ -63,7 +64,7 @@ export const loaduser = () => async (dispatch) => {
 export const logout = () => async (dispatch) => {
     try{
         dispatch({type: "LogoutRequest"})
-        const { data } = await axios.get(`${server_link}/api/v1/logout`,config2)
+        const { data } = await axios.get(`${live_server_link}/api/v1/logout`,config2)
         dispatch({type: "LogoutSuccess", payload: data.message})
     }catch(error){
         if(error.response){

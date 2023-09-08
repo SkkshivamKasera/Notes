@@ -71,19 +71,35 @@ export const showPdf = async (req, res) => {
 
 export const createNote = async (req, res) => {
     try{
-        const { name, img } = req.body
-        if(!name || !img){
+        const { name, img, notes } = req.body
+        if(!name || !img || !notes){
             return res.status(400).json({ success: false, message: "⚠️ All Fields Are Required" })
         }
-        const myCloud = await cloudinary.v2.uploader.upload(img, {
+        if(img.includes(".pdf")){
+            return res.status(400).json({ success: false, message: "❌ Unexpected Extension in Image" })
+        }
+        if(img.includes(".docs")){
+            return res.status(400).json({ success: false, message: "❌ Unexpected Extension in Image" })
+        }
+        const myCloud_1 = await cloudinary.v2.uploader.upload(img, {
             folder: "NotesImages",
+            width: 150,
+            crop: "scale"
+        })
+        const myCloud_2 = await cloudinary.v2.uploader.upload_large(notes, {
+            folder: "NotesImages",
+            allowed_formats: ['pdf'],
             width: 150,
             crop: "scale"
         })
         await Note.create({
             name,  img: {
-                public_id: myCloud.public_id,
-                url: myCloud.secure_url
+                public_id: myCloud_1.public_id,
+                url: myCloud_1.secure_url
+            }, 
+            notes: {
+                public_id: myCloud_2.public_id,
+                url : myCloud_2.secure_url
             }
         })
         return res.status(200).json({success: true, message: "✅ Note Created"})

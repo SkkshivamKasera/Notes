@@ -2,7 +2,8 @@ import React from 'react'
 import './NoteCard.css'
 import { Link } from 'react-router-dom'
 
-const NoteCard = ({name, img}) => {
+const NoteCard = ({name, img, notes}) => {
+  console.log(notes)
   return (
     <div className='note_card'>
       <div className='note_card_contant'>
@@ -12,8 +13,7 @@ const NoteCard = ({name, img}) => {
             <span>Download Notes Here</span>
         </div>
         <div>
-            <Link target='_blank' to={`https://notes-y8nr.onrender.com/api/v1/notes/${name}.pdf`}>Pdf Notes</Link>
-            <a href='#'>Chapterwise Notes</a>
+            <Link target='_blank' to={notes && notes.url}>Pdf Notes</Link>
         </div>
       </div>
     </div>

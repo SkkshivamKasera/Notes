@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const server_link = "https://notes-y8nr.onrender.com"
+const live_server_link = "https://notes-y8nr.onrender.com"
+// const live_server_link = "http://localhost:5000"
 const config1 = {
     headers: {
         "Content-Type": "application/json"
@@ -14,7 +15,7 @@ const config2 = {
 export const createCourse = (name, desc, paid, price, CourseImage, docs_name) => async (dispatch) => {
     try{
         dispatch({type: "CreateCourseRequest"})
-        const { data } = await axios.post(`${server_link}/api/v1/admin/new`, {
+        const { data } = await axios.post(`${live_server_link}/api/v1/admin/new`, {
             name, desc, paid, price, CourseImage, docs_name
         },config1)
         dispatch({type: "CreateCourseSuccess", payload: data.message})
@@ -31,7 +32,7 @@ export const createCourse = (name, desc, paid, price, CourseImage, docs_name) =>
 export const getAllCourses = () => async (dispatch) => {
     try{
         dispatch({type: "GetAllCoursesRequest"})
-        const { data } = await axios.get(`${server_link}/api/v1/getAllCourse`, config2)
+        const { data } = await axios.get(`${live_server_link}/api/v1/getAllCourse`, config2)
         dispatch({type: "GetAllCoursesSuccess", payload: data.courses})
     }catch(error){
         if(error.response){
@@ -46,7 +47,7 @@ export const getAllCourses = () => async (dispatch) => {
 export const getCourseInfo = (id) => async (dispatch) => {
     try{
         dispatch({type: "GetCourseInfoRequest"})
-        const { data } = await axios.get(`${server_link}/api/v1/course/${id}`, config2)
+        const { data } = await axios.get(`${live_server_link}/api/v1/course/${id}`, config2)
         dispatch({type: "GetCourseInfoSuccess", payload: data.course})
     }catch(error){
         if(error.response){
@@ -61,7 +62,7 @@ export const getCourseInfo = (id) => async (dispatch) => {
 export const enrollCourse = (id) => async (dispatch) => {
     try{
         dispatch({type: "EnrollRequest"})
-        const { data } = await axios.get(`${server_link}/api/v1/enroll/add/${id}`, config2)
+        const { data } = await axios.get(`${live_server_link}/api/v1/enroll/add/${id}`, config2)
         dispatch({type: "EnrollSuccess", payload: data.message})
     }catch(error){
         if(error.response){
@@ -73,11 +74,11 @@ export const enrollCourse = (id) => async (dispatch) => {
     }
 }
 
-export const createNote = (name, img) => async(dispatch) => {
+export const createNote = (name, img, pdf) => async(dispatch) => {
     try{
         dispatch({type: "CreateNoteRequest"})
-        const { data } = await axios.post(`${server_link}/api/v1/admin/note/new`, {
-            name, img
+        const { data } = await axios.post(`${live_server_link}/api/v1/admin/note/new`, {
+            name, img, notes: pdf
         }, config1)
         dispatch({type: "CreateNoteSuccess", payload: data.message})
     }catch(error){
@@ -93,7 +94,7 @@ export const createNote = (name, img) => async(dispatch) => {
 export const getAllNotes = () => async (dispatch) => {
     try{
         dispatch({type: "GetAllNotesRequest"})
-        const { data } = await axios.get(`${server_link}/api/v1/getAllNotes`, config2)
+        const { data } = await axios.get(`${live_server_link}/api/v1/getAllNotes`, config2)
         dispatch({type: "GetAllNotesSuccess", payload: data.notes})
     }catch(error){
         if(error.response){

@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import "./CourseDetail.css"
 import { enrollCourse, getCourseInfo } from '../../actions/courseAction'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 const CourseDetail = ({user, setProgress, setLoadCourses}) => {
     const dispatch = useDispatch()
@@ -35,7 +35,7 @@ const CourseDetail = ({user, setProgress, setLoadCourses}) => {
                             <h1 id='h1_id'>{course.name}</h1>
                             <p id='p1_id'>{course.desc}</p>
                             <p className={course.price===0?"greenColor":"redColor"} id='p2_id'>PRICE : {course.price}₹</p>
-                            <button id={course.enrollments.some(enrollment => enrollment.user_id === user._id) && "disable"} disabled={course.enrollments.some(enrollment => enrollment.user_id === user._id)} onClick={enroll}>{course.enrollments.some(enrollment => enrollment.user_id === user._id) ? "ENROLLED":"ENROLL NOW"}</button>
+                            <button id={user && course.enrollments.some(enrollment => enrollment.user_id === user._id) && "disable"} disabled={user && course.enrollments.some(enrollment => enrollment.user_id === user._id)} onClick={enroll}>{user ? course.enrollments.some(enrollment => enrollment.user_id === user._id) ? "ENROLLED":"ENROLL NOW" : "ENROLL NOW"}</button>
                         </div>
                     </div>
                 </div>}

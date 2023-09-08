@@ -8,6 +8,10 @@ const noteSchema = new mongoose.Schema({
     img: {
         public_id: String,
         url: String
+    },
+    notes: {
+        public_id: String,
+        url: String
     }
 });
 
