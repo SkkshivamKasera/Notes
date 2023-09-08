@@ -2,15 +2,22 @@ import './Home.css'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import CourseCard from '../card/CourseCard'
+import { useTypewriter, Cursor } from 'react-simple-typewriter'
 
 const Home = ({setProgress}) => {
     const { courses } = useSelector(state => state.course)
+
+    const [text] = useTypewriter({
+        words: ["Coding", "Python", "Machine Learning", "HTML", "CSS", "Java Script", "React Js"],
+        loop: true
+    })
+
     return (
         <div className='container'>
             <div className='div1'>
                 <div className='text-div'>
                     <h1>Welcome to <span className='span1'>Code</span></h1>
-                    <h2>Learn <span className='span2'></span></h2>
+                    <h2>Learn <span className='span2'>{text}<Cursor isTyping={true} blinkSpeed={500} /></span></h2>
                     <span className='span3'>Confused on which course to take? I have got you covered. Browse courses and find out the best course for you. Its free! Code With Harry is my attempt to teach basics and those coding techniques to people in short time which took me ages to learn.</span>
                     <div>
                         <Link to={"/courses"}>FREE COURSE</Link>
