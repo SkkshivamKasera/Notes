@@ -16,7 +16,6 @@ const SignUp = (props) => {
     e.preventDefault()
     props.setProgress(20)
     await dispatch(signup(name, email, password))
-    await props.setLoadUser(false)
     props.setProgress(50)
     setName("")
     setEmail("")

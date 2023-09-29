@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const live_server_link = "https://notes-y8nr.onrender.com"
-// const live_server_link = "http://localhost:5000"
+// const live_server_link = "https://notes-y8nr.onrender.com"
+const live_server_link = "http://localhost:5000"
 const config1 = {
     headers: {
         "Content-Type": "application/json"
@@ -72,6 +72,40 @@ export const logout = () => async (dispatch) => {
         }else
         {
             dispatch({type: "LogoutFaliure", payload: error.message})
+        }
+    }
+}
+
+export const forgotPassword = (email) => async (dispatch) => {
+    try{
+        dispatch({type: "ForgotRequest"})
+        const { data } = await axios.post(`${live_server_link}/api/v1/forgotpassword`, {
+            email
+        },config1)
+        dispatch({type: "ForgotSuccess", payload: data.message})
+    }catch(error){
+        if(error.response){
+            dispatch({type: "ForgotFaliure", payload: error.response.data.message})
+        }else
+        {
+            dispatch({type: "ForgotFaliure", payload: error.message})
+        }
+    }
+}
+
+export const resetPassword = (token, password, confirmPassword) => async (dispatch) => {
+    try{
+        dispatch({type: "ResetRequest"})
+        const { data } = await axios.post(`${live_server_link}/api/v1/resetpassword/${token}`, {
+            password, confirmPassword
+        },config1)
+        dispatch({type: "ResetSuccess", payload: data.message})
+    }catch(error){
+        if(error.response){
+            dispatch({type: "ResetFaliure", payload: error.response.data.message})
+        }else
+        {
+            dispatch({type: "ResetFaliure", payload: error.message})
         }
     }
 }

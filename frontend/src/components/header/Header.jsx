@@ -64,11 +64,11 @@ const Header = (props) => {
     return (
         <div className='header'>
             <div className='div1'>
-                <span>
-                    Code
+                <span style={{cursor: "pointer"}}>
+                    <Link to={"/"} style={{color: "blueviolet"}}>Code</Link>
                 </span>
                 <div>
-                    <button id='menu_bar_id' className='menu_bar' onClick={()=>props.setIsOpen(!props.isOpen)}>{props.isOpen ? <i class="fa-solid fa-xmark"></i> : <i class="fa-solid fa-bars"></i>}</button>
+                    <button id='menu_bar_id' className='menu_bar' onClick={()=>props.setIsOpen(!props.isOpen)}>{props.isOpen ? <i className="fa-solid fa-xmark"></i> : <i className="fa-solid fa-bars"></i>}</button>
                     <ul>
                         <li><Link onClick={progressLoading} to={"/"}>Home</Link></li>
                         <li><Link onClick={progressLoading} to={"/courses"}>Courses</Link></li>
@@ -77,16 +77,17 @@ const Header = (props) => {
                         {user && user.role === 'admin' && <li><Link onClick={progressLoading} to={"/admin/note/new"}>Add Notes</Link></li>}
                     </ul>
                     <div className='light-dark-mode'>
-                        <i class="fa-solid fa-sun"></i>
+                        <i className="fa-solid fa-sun"></i>
                     </div>
                     {
                         isAuth ? <div id='profile' className='profile_div'>
                             <img onClick={dropdown} src='https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg?w=2000' alt='none' />
                             <ul id='profile_ul'>
-                                <Link to={"/profile"}><li>My Profile</li></Link>
+                                <Link onClick={dropdown} to={"/profile"}><li>My Profile</li></Link>
                                 <Link to={"/"} onClick={() => {
                                     progressLoading()
                                     logoutHandler()
+                                    dropdown()
                                 }}><li>Logout</li></Link>
                             </ul>
                         </div> :
@@ -98,7 +99,7 @@ const Header = (props) => {
             </div>
             <hr />
             <div className='div2'>
-                <Link onClick={progressLoading} to={"/"}><i class="fa-solid fa-house"></i></Link>
+                <Link onClick={progressLoading} to={"/"}><i className="fa-solid fa-house"></i></Link>
                 <ul>
                     <li><Link to={"/HTML"}>HTML</Link></li>
                     <li><Link to={"/CSS"}>CSS</Link></li>
@@ -112,7 +113,7 @@ const Header = (props) => {
                 </ul>
                 <div className='search_div'>
                     <input type="text" className='search_input' id='search_input_id' placeholder='Search...' />
-                    <i onClick={showSearch} class="fa-solid fa-magnifying-glass"></i>
+                    <i onClick={showSearch} className="fa-solid fa-magnifying-glass"></i>
                 </div>
             </div>
         </div>

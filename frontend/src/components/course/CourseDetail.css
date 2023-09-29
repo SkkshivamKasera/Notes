@@ -1,6 +1,6 @@
 .course_detail_container{
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     max-width: 100%;
     display: flex;
     justify-content: center;
@@ -17,7 +17,6 @@
 .course_detail_container_img_box{
     width: 100%;
     height: 100%;
-    border-right: 2px solid black;
 }
 
 .course_detail_container_img_box > img{
@@ -36,7 +35,7 @@
 
 #h1_id{
     text-align: center;
-    border-bottom: 4px solid black;
+    border-bottom: 4px solid blueviolet;
     margin-top: -30px;
 }
 

@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 
-export const userReducer = createReducer({ }, {
+export const userReducer = createReducer({}, {
     "LoginRequest": (state) => {
         state.loading = true
     },
@@ -54,6 +54,28 @@ export const userReducer = createReducer({ }, {
         state.loading = false
         state.error = action.payload
     },
+    ForgotRequest: (state) => {
+        state.loading = true
+    },
+    ForgotSuccess: (state, action) => {
+        state.loading = false
+        state.message = action.payload
+    },
+    ForgotFaliure: (state, action) => {
+        state.loading = false
+        state.error = action.payload
+    },
+    ResetRequest: (state) => {
+        state.loading = true
+    },
+    ResetSuccess: (state, action) => {
+        state.loading = false
+        state.message = action.payload
+    },
+    ResetFaliure: (state, action) => {
+        state.loading = false
+        state.error = action.payload
+    },
     "ClearError": (state) => {
         state.error = null
     },
@@ -62,7 +84,7 @@ export const userReducer = createReducer({ }, {
     }
 })
 
-export const courseReducer = createReducer({ }, {
+export const courseReducer = createReducer({}, {
     "CreateCourseRequest": (state) => {
         state.loading = true
     },
@@ -93,18 +115,18 @@ export const courseReducer = createReducer({ }, {
     }
 })
 
-export const courseInfoReducer = createReducer({ }, { 
+export const courseInfoReducer = createReducer({}, {
     "GetCourseInfoRequest": (state) => {
         state.loading = true
-    } ,
+    },
     "GetCourseInfoSuccess": (state, action) => {
         state.loading = false
         state.course = action.payload
-    } ,
+    },
     "GetCourseInfoFailure": (state, action) => {
         state.loading = false
         state.error = action.payload
-    } ,
+    },
     "ClearError": (state) => {
         state.error = null
     },
@@ -113,29 +135,40 @@ export const courseInfoReducer = createReducer({ }, {
     }
 })
 
-export const commonReducer = createReducer({ }, { 
+export const commonReducer = createReducer({}, {
     "EnrollRequest": (state) => {
         state.loading = true
-    } ,
+    },
     "EnrollSuccess": (state, action) => {
         state.loading = false
         state.message = action.payload
-    } ,
+    },
     "EnrollFailure": (state, action) => {
         state.loading = false
         state.error = action.payload
-    } ,
+    },
+    "RemoveEnrollRequest": (state) => {
+        state.loading = true
+    },
+    "RemoveEnrollSuccess": (state, action) => {
+        state.loading = false
+        state.message = action.payload
+    },
+    "RemoveEnrollFailure": (state, action) => {
+        state.loading = false
+        state.error = action.payload
+    },
     "CreateNoteRequest": (state) => {
         state.loading = true
-    } ,
+    },
     "CreateNoteSuccess": (state, action) => {
         state.loading = false
         state.message = action.payload
-    } ,
+    },
     "CreateNoteFailure": (state, action) => {
         state.loading = false
         state.error = action.payload
-    } ,
+    },
     "ClearError": (state) => {
         state.error = null
     },
@@ -144,18 +177,18 @@ export const commonReducer = createReducer({ }, {
     }
 })
 
-export const noteReducer = createReducer({ }, { 
+export const noteReducer = createReducer({}, {
     "GetAllNotesRequest": (state) => {
         state.loading = true
-    } ,
+    },
     "GetAllNotesSuccess": (state, action) => {
         state.loading = false
         state.notes = action.payload
-    } ,
+    },
     "GetAllNotesFailure": (state, action) => {
         state.loading = false
         state.error = action.payload
-    } ,
+    },
     "ClearError": (state) => {
         state.error = null
     },

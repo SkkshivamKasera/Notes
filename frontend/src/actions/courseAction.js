@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const live_server_link = "https://notes-y8nr.onrender.com"
-// const live_server_link = "http://localhost:5000"
+// const live_server_link = "https://notes-y8nr.onrender.com"
+const live_server_link = "http://localhost:5000"
 const config1 = {
     headers: {
         "Content-Type": "application/json"
@@ -70,6 +70,21 @@ export const enrollCourse = (id) => async (dispatch) => {
         }else
         {
             dispatch({type: "EnrollFailure", payload: error.message})
+        }
+    }
+}
+
+export const removeEnrollCourse = (id) => async (dispatch) => {
+    try{
+        dispatch({type: "RemoveEnrollRequest"})
+        const { data } = await axios.get(`${live_server_link}/api/v1/enroll/remove/${id}`, config2)
+        dispatch({type: "RemoveEnrollSuccess", payload: data.message})
+    }catch(error){
+        if(error.response){
+            dispatch({type: "RemoveEnrollFailure", payload: error.response.data.message})
+        }else
+        {
+            dispatch({type: "RemoveEnrollFailure", payload: error.message})
         }
     }
 }

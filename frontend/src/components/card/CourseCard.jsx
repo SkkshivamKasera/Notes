@@ -4,16 +4,16 @@ import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getCourseInfo } from '../../actions/courseAction'
 
-const CourseCard = ({ id, CourseImage, paid, price, name, desc, enrollments, setProgress }) => {
+const CourseCard = ({ id, CourseImage, paid, price, name, desc, enrollments, setProgress, EON }) => {
     const dispatch = useDispatch()
     const getCourseDetail = async () => {
-        setProgress(50)
-        await dispatch(getCourseInfo(id))
-        setProgress(100)
+            setProgress(50)
+            await dispatch(getCourseInfo(id))
+            setProgress(100)
     }
     return (
         <div className='course_card'>
-            <div className={`course_badge ${enrollments.length !== 0 ? "backgroundGreenColor" : "backgroundRedColor"}`}><i class="fa-solid fa-user-plus"></i>{enrollments.length}</div>
+            <div className={`course_badge ${enrollments.length !== 0 ? "backgroundGreenColor" : "backgroundRedColor"}`}><i className="fa-solid fa-user-plus"></i>{enrollments.length}</div>
             <div className='course_img_box'>
                 <img src={CourseImage} alt='none' />
             </div>
@@ -23,9 +23,8 @@ const CourseCard = ({ id, CourseImage, paid, price, name, desc, enrollments, set
                 <h5>{name}</h5>
                 <p>{desc}</p>
             </div>
-            <Link onClick={getCourseDetail} to={`/course/${id}`}>Enroll Now</Link>
+            <Link onClick={getCourseDetail} to={`/course/${id}`}>{EON}</Link>
         </div>
-
     )
 }
 

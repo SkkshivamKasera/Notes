@@ -30,6 +30,7 @@ const MyCourses = ({setProgress}) => {
             desc={course.desc}
             enrollments={course.enrollments}
             setProgress={setProgress}
+            EON={"Continue Learning"}
           />
         ))      
       }

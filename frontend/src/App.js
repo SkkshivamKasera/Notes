@@ -7,6 +7,7 @@ import Login from './components/auth/Login.jsx'
 import SignUp from './components/auth/SignUp'
 import LoadingBar from 'react-top-loading-bar'
 import ForGotPassword from './components/auth/ForGotPassword'
+import ResetPassword from './components/auth/ResetPassword.jsx'
 import Footer from './components/footer/Footer';
 import Alert from './components/alert/Alert';
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,6 +22,8 @@ import CourseDetail from './components/course/CourseDetail.jsx'
 import CreateNote from './components/notes/CreateNote';
 import MyProfile from './components/profile/MyProfile';
 import MyCourses from './components/profile/MyCourses';
+import NotFound from './components/notfound/NotFound.jsx';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [progress, setProgress] = useState(0)
@@ -34,6 +37,7 @@ function App() {
   const { loading: courseLoading, error: courseError, message: courseMessage } = useSelector(state=>state.course)
   const { loading: commonLoading, error: commonError, message: commonMessage } = useSelector(state=>state.common)
   const { loading: noteLoading, error: noteError } = useSelector(state=>state.note)
+  const { loading: courseInfoLoading } = useSelector(state =>state.courseInfo)
 
   useEffect(()=>{
     if(progress === 100){
@@ -54,13 +58,14 @@ function App() {
         showAlert("warning", error);
         dispatch({ type: "ClearError" });
       } else {
-        showAlert("danger", error);
+        if(!error.includes("Please Login")) showAlert("danger", error);
         dispatch({ type: "ClearError" });
       }
     }
     if (message) {
       showAlert("success", message);
       dispatch({ type: "ClearMessage" });
+      setLoadUser(false)
     }
     if (courseError) {
       if (courseError.includes("⚠️")) {
@@ -72,7 +77,7 @@ function App() {
       }
     }
     if (courseMessage) {
-      showAlert("success", commonMessage);
+      showAlert("success", courseMessage);
       dispatch({ type: "ClearMessage" });
     }
     if (commonError) {
@@ -120,10 +125,8 @@ function App() {
     setProgress(100)
   }
 
-  
-
   return (
-    loading || courseLoading || commonLoading || noteLoading ? 
+    loading || courseLoading || commonLoading || noteLoading || courseInfoLoading ? 
     <div>
       <LoadingBar color='blueviolet' height={4} progress={progress} />
       <Loader/>
@@ -138,14 +141,16 @@ function App() {
         <Route exact path='/' element={<Home setProgress={setProgress}/>}/>
         <Route exact path='/login' element={!isAuthenticated ? <Login setLoadUser={setLoadUser} showAlert={showAlert} setProgress={setProgress}/> : <Home/>}/>
         <Route exact path='/signup' element={!isAuthenticated ? <SignUp setLoadUser={setLoadUser} showAlert={showAlert} setProgress={setProgress}/> : <Home/>}/>
-        <Route exact path='/forgotpassword' element={<ForGotPassword/>}/>
+        <Route exact path='/forgotpassword' element={<ForGotPassword setProgress={setProgress} setLoadUser={setLoadUser}/>}/>
+        <Route exact path='/password/reset/:token' element={<ResetPassword setProgress={setProgress}/>}/>
         <Route exact path='/notes' element={<Notes setLoadCourses={setLoadCourses} setLoadUser={setLoadUser}/>}/>
         <Route exact path='/courses' element={<Courses setLoadCourses={setLoadCourses} setLoadUser={setLoadUser} setProgress={setProgress}/>}/>
         <Route exact path='/admin/new' element={user ? user.role === "admin" && <CreateCourse setProgress={setProgress} setLoadCourses={setLoadCourses}/> : <Home/>}/>
         <Route exact path='/admin/note/new' element={user ? user.role === "admin" && <CreateNote showAlert={showAlert} setProgress={setProgress} setLoadNotes={setLoadNotes}/> : <Home/>}/>
         <Route exact path='/course/:id' element={<CourseDetail user={user} setProgress={setProgress} setLoadCourses={setLoadCourses}/>}/>
         <Route exact path='/profile' element={<MyProfile/>}/>
-        <Route exact path='/mycourses' element={<MyCourses/>}/>
+        <Route exact path='/mycourses' element={<MyCourses setProgress={setProgress}/>}/>
+        <Route exact path='/*' element={<NotFound/>}></Route>
       </Routes>
       <Footer/>
     </Fragment>
