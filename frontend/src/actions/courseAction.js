@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-// const live_server_link = "https://notes-y8nr.onrender.com"
-const live_server_link = "http://localhost:5000"
+const live_server_link = "https://notes-y8nr.onrender.com"
+// const live_server_link = "http://localhost:5000"
 const config1 = {
     headers: {
         "Content-Type": "application/json"
