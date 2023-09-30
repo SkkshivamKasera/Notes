@@ -27,10 +27,10 @@ const Home = ({ setProgress }) => {
                 </div>
                 <div className='img-div'></div>
             </div>
-            <h1 className='Recommended-Courses'>Recommended Courses</h1>
+            <h1 className={courses.length!==0?"Recommended-Courses":"visibilty_none"}>Recommended Courses</h1>
             <div className='card_container'>
             {   
-                courses && 
+                courses.length !== 0 &&
                 <>
                     <CourseCard id={courses[0]._id} CourseImage={courses[0].CourseImage.url} paid={courses[0].paid} price={courses[0].price} name={courses[0].name} desc={courses[0].desc} enrollments={courses[0].enrollments} setProgress={setProgress} EON={"Enroll Now"}/>
                     <CourseCard id={courses[3]._id} CourseImage={courses[3].CourseImage.url} paid={courses[3].paid} price={courses[3].price} name={courses[3].name} desc={courses[3].desc} enrollments={courses[3].enrollments} setProgress={setProgress} EON={"Enroll Now"}/>

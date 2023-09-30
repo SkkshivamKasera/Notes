@@ -24,6 +24,7 @@ import MyProfile from './components/profile/MyProfile';
 import MyCourses from './components/profile/MyCourses';
 import NotFound from './components/notfound/NotFound.jsx';
 import 'react-toastify/dist/ReactToastify.css';
+import UpdateAvatar from './components/profile/UpdateAvatar';
 
 function App() {
   const [progress, setProgress] = useState(0)
@@ -148,8 +149,9 @@ function App() {
         <Route exact path='/admin/new' element={user ? user.role === "admin" && <CreateCourse setProgress={setProgress} setLoadCourses={setLoadCourses}/> : <Home/>}/>
         <Route exact path='/admin/note/new' element={user ? user.role === "admin" && <CreateNote showAlert={showAlert} setProgress={setProgress} setLoadNotes={setLoadNotes}/> : <Home/>}/>
         <Route exact path='/course/:id' element={<CourseDetail user={user} setProgress={setProgress} setLoadCourses={setLoadCourses}/>}/>
-        <Route exact path='/profile' element={<MyProfile/>}/>
+        <Route exact path='/profile' element={<MyProfile setLoadUser={setLoadUser}/>}/>
         <Route exact path='/mycourses' element={<MyCourses setProgress={setProgress}/>}/>
+        <Route exact path='/me/update/avatar' element={<UpdateAvatar setProgress={setProgress} setLoadUser={setLoadUser}/>}/>
         <Route exact path='/*' element={<NotFound/>}></Route>
       </Routes>
       <Footer/>

@@ -1,5 +1,5 @@
 import express from 'express'
-import { login, register, logout, loadUser, enroll, removeEnroll, forgotPassword, resetPassword } from '../actions/userAction.js'
+import { login, register, logout, loadUser, enroll, removeEnroll, forgotPassword, resetPassword, updateImage } from '../actions/userAction.js'
 import { isAuthentiated } from '../middleware/auth.js'
 
 const router = express.Router()
@@ -8,6 +8,7 @@ router.post('/register', register)
 router.post('/login', login)
 router.get('/logout', logout)
 router.get('/me', isAuthentiated, loadUser)
+router.post('/me/update/avatar', isAuthentiated, updateImage)
 router.post("/forgotpassword", forgotPassword)
 router.post("/resetpassword/:token", resetPassword)
 

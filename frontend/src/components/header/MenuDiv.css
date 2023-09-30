@@ -11,7 +11,7 @@
     padding: 2px;
     z-index: 400;
     right: 0;
-    border: 2px solid black;
+    border-radius: 10px;
 }
 
 .menu-ul>a>li {

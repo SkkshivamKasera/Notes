@@ -65,7 +65,10 @@ const MenuDiv = ({ setProgress, isOpen, setIsOpen }) => {
                 }}><li>Logout</li></Link>
             </> : 
             <>
-            <Link onClick={progressLoading} to="/login"><li>Login</li></Link>
+            <Link onClick={() => {
+                progressLoading()
+                setIsOpen(!isOpen)
+            }} to="/login"><li>Login</li></Link>
         </>}
         </ul>
     )

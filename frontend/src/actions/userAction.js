@@ -109,3 +109,20 @@ export const resetPassword = (token, password, confirmPassword) => async (dispat
         }
     }
 }
+
+export const updateAvatar = (image) => async (dispatch) => {
+    try{
+        dispatch({type: "UpdateAvatarRequest"})
+        const { data } = await axios.post(`${live_server_link}/api/v1/me/update/avatar`, {
+            image
+        },config1)
+        dispatch({type: "UpdateAvatarSuccess", payload: data.message})
+    }catch(error){
+        if(error.response){
+            dispatch({type: "UpdateAvatarFailure", payload: error.response.data.message})
+        }else
+        {
+            dispatch({type: "UpdateAvatarFailure", payload: error.message})
+        }
+    }
+}

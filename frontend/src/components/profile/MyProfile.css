@@ -5,7 +5,6 @@
     display: flex;
     justify-content: center;
     position: relative;
-    border: 1px solid black;
 }
 
 .my_profile_box{
@@ -25,16 +24,30 @@
 
 .my_profile_img > img{
     width: 300px;
+    height: 300px;
     border-radius: 100%;
     box-shadow: 0 0 10px blueviolet;
-    transition: all 0.5s;
+    transition: all ease-in-out 0.5s;
 }
 
 .my_profile_img > img:hover{
     transform: scale(1.1);
 }
 
-.my_profile_img > button{
+.my_profile_img > a{
+    margin-top: 30px;
+    color: blueviolet;
+    font-weight: bolder;
+    font-size: 1rem;
+    transition: all ease-in-out 0.5s;
+}
+
+.my_profile_img > a:hover{
+    color: blueviolet;
+    transform: scale(1.2);
+}
+
+.my_profile_img > .button_done{
     margin-top: 40px;
     background-color: transparent;
     border: 3px solid blueviolet;
@@ -42,12 +55,13 @@
     width: 20%;
     font-weight: bold;
     color: blueviolet;
-    padding: 1vmax 1vmax;
+    padding: 0.5vmax 1vmax;
     border-radius: 30px;
     transition: all 0.5s;
+    visibility: hidden;
 }
 
-.my_profile_img > button:hover{
+.my_profile_img > .button_done:hover{
     background-color: blueviolet;
     color: white;
 }

@@ -1,0 +1,140 @@
+.update_avatar {
+    width: 100vw;
+    min-height: 80vh;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.update_img_box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.update_img_box > img{
+    border-radius: 100%;
+    background: transparent;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+
+.update_btn_div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.update_hr_lines {
+    position: relative;
+    max-width: 500px;
+    margin: 50px auto;
+    text-align: center;
+    width: 30%;
+    color: blueviolet;
+}
+
+.update_hr_lines::before {
+    content: "";
+    color: blueviolet;
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    left: 65%;
+    background-color: blueviolet;
+}
+
+.update_hr_lines::after {
+    content: "";
+    color: blueviolet;
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    right: 65%;
+    background-color: blueviolet;
+}
+
+.file-upload {
+    position: relative;
+    padding: 0 1vmax;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    color: blueviolet;
+    width: 200px;
+}
+
+.file-upload input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 1vmax;
+    opacity: 0;
+}
+
+.file-upload > label {
+    display: block;
+    text-align: center;
+    line-height: 40px;
+}
+
+
+.file-upload:hover {
+    border: 2px solid blueviolet;
+}
+
+.button{
+    width: 200px;
+    cursor: pointer;
+    background: transparent;
+    padding: 0.5 1vmax;
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    color: blueviolet;
+}
+
+.button:hover {
+    border: 2px solid blueviolet;
+}
+
+@media screen and (max-width: 600px) {
+    .update_avatar{
+        flex-direction: column;
+    }
+
+    .file-upload{
+        padding: 1vmax 2vmax;
+        font-size: 3vmax;
+        border-width: 2px;
+        font-weight: 500;
+        color: blueviolet;
+        width: 70%;
+    }
+
+    .button{
+        padding: 1vmax 2vmax;
+        font-size: 3vmax;
+        border-width: 2px;
+        font-weight: 500;
+        color: blueviolet;
+        width: 70%;
+    }
+
+    .update_img_box{
+        margin-top: 20px;
+    }
+}

@@ -39,15 +39,11 @@ const Header = (props) => {
     const dropdown = () => {
         if (!profile_ul_visible) {
             const profile_ul = document.getElementById("profile_ul")
-            const profile = document.getElementById("profile")
             profile_ul.style.display = "block"
-            profile.style.marginTop = "70px"
             setProfile_ul_visible(true)
         } else {
             const profile_ul = document.getElementById("profile_ul")
-            const profile = document.getElementById("profile")
             profile_ul.style.display = "none"
-            profile.style.marginTop = "0px"
             setProfile_ul_visible(false)
         }
     }
@@ -81,7 +77,13 @@ const Header = (props) => {
                     </div>
                     {
                         isAuth ? <div id='profile' className='profile_div'>
-                            <img onClick={dropdown} src='https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg?w=2000' alt='none' />
+                            {
+                                user && user.avatar ? (
+                                    <img onClick={dropdown} src={user.avatar.url} alt='none' />
+                                ) : (
+                                    <img onClick={dropdown} src='https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg?w=2000' alt='none' />
+                                )
+                            }
                             <ul id='profile_ul'>
                                 <Link onClick={dropdown} to={"/profile"}><li>My Profile</li></Link>
                                 <Link to={"/"} onClick={() => {

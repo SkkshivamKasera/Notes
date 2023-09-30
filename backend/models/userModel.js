@@ -23,7 +23,7 @@ const userModel = new mongoose.Schema({
         default: "user"
     },
     avatar: {
-        public_url: String,
+        public_id: String,
         url: String
     },
     resetPasswordToken: String,

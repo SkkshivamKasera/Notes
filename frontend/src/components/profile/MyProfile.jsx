@@ -1,17 +1,26 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import './MyProfile.css'
+import { updateAvatar } from '../../actions/userAction'
 
-const MyProfile = () => {
+const MyProfile = ({setLoadUser}) => {
     const { user } = useSelector(state => state.user)
+    const dispatch = useDispatch()
+
     return (
         user && (
             <div className='my_profile_container'>
                 <div className='my_profile_box'>
                     <div className='my_profile_img'>
-                        <img src={"https://cdn-icons-png.flaticon.com/512/149/149071.png"} alt="none" />
-                        <button>Change Image</button>
+                        {
+                            user && user.avatar ? (
+                                <img src={user.avatar.url} alt="none" />
+                            ) : (
+                                <img src={"https://cdn-icons-png.flaticon.com/512/149/149071.png"} alt="none" />
+                            )
+                        }
+                        <Link className='input' to={"/me/update/avatar"}>Change Avatar</Link>
                     </div>
                     <div className='my_profile_content'>
                         <div>

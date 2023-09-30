@@ -158,6 +158,17 @@ export const commonReducer = createReducer({}, {
         state.loading = false
         state.error = action.payload
     },
+    "UpdateAvatarRequest": (state) => {
+        state.loading = true
+    },
+    "UpdateAvatarSuccess": (state, action) => {
+        state.loading = false
+        state.message = action.payload
+    },
+    "UpdateAvatarFailure": (state, action) => {
+        state.loading = false
+        state.error = action.payload
+    },
     "CreateNoteRequest": (state) => {
         state.loading = true
     },

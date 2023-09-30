@@ -3,6 +3,7 @@ import { User } from "../models/userModel.js"
 import { sendEmail } from "../utils/sendEmail.js"
 import { sendToken } from "../utils/sendToken.js"
 import crypto from 'crypto'
+import cloudinary from 'cloudinary'
 
 export const register = async (req, res) => {
     try {
@@ -96,6 +97,42 @@ export const resetPassword = async (req, res) => {
         sendToken(user, true, "success", res)
     }
     catch (error) {
+        return res.status(500).json({ success: false, message: `❌ ${error.message}` })
+    }
+}
+
+export const updateImage = async (req, res) => {
+    try{
+        const { image } = req.body
+        const user = await User.findById(req.user._id)
+        if(!image){
+            return res.status(400).json({ success: false, message: "⚠️ All Fields Are Required" })
+        }
+        if(!user){
+            return res.status(400).json({ success: false, message: "❌ User Not Found" })
+        }
+        if(user.avatar && user.avatar.public_id && user.avatar.url){
+            await cloudinary.v2.uploader.destroy(user.avatar.public_id)
+            const myCloud = await cloudinary.v2.uploader.upload(image, {
+                folder: "userFolder"
+            }) 
+            user.avatar = {
+                public_id: myCloud.public_id,
+                url: myCloud.secure_url
+            }
+            await user.save()
+        }else{
+            const myCloud = await cloudinary.v2.uploader.upload(image, {
+                folder: "userFolder"
+            })
+            user.avatar = {
+                public_id: myCloud.public_id,
+                url: myCloud.secure_url
+            }
+            await user.save()
+        }
+        return res.status(200).json({success: true, message: "✅ Avatar Update Successfully"})
+    } catch (error) {
         return res.status(500).json({ success: false, message: `❌ ${error.message}` })
     }
 }

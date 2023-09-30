@@ -38,6 +38,10 @@ a{
     text-decoration: none;
 }
 
+.visibilty_none{
+    visibility: hidden;
+}
+
 @media screen and (max-width: 700px){
     .notFound{
         height: 75vh;

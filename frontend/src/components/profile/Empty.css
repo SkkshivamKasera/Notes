@@ -1,0 +1,50 @@
+.empty-container{
+    width: 100vw;
+    height: 70vh;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.empty-heading{
+    color: blueviolet;
+    font-weight: bold;
+}
+
+.empty-text{
+    font-size: 1.3rem;
+    color: blueviolet;
+}
+
+.empty-link{
+    border: 2px solid blueviolet;
+    padding: 0.5vmax 1vmax;
+    border-radius: 20px;
+    color: blueviolet;
+    transition: ease-in-out;
+}
+
+.empty-link:hover{
+    background-color: blueviolet;
+    color: white;
+}
+
+@media screen and (max-width: 700px){
+    .empty-container{
+        height: 75vh;
+    }
+
+    .empty-heading{
+        font-size: 2rem;
+    }
+
+    .empty-text{
+        font-size: 1rem;
+    }
+
+    .empty-link{
+        font-size: 1rem;
+    }
+}
