@@ -27,13 +27,13 @@ const Home = ({ setProgress }) => {
                 </div>
                 <div className='img-div'></div>
             </div>
-            <h1 className={courses.length!==0?"Recommended-Courses":"visibilty_none"}>Recommended Courses</h1>
+            <h1 className={courses.length===3?"Recommended-Courses":"visibilty_none"}>Recommended Courses</h1>
             <div className='card_container'>
             {   
-                courses.length !== 0 &&
+                courses.length === 3 &&
                 <>
                     <CourseCard id={courses[0]._id} CourseImage={courses[0].CourseImage.url} paid={courses[0].paid} price={courses[0].price} name={courses[0].name} desc={courses[0].desc} enrollments={courses[0].enrollments} setProgress={setProgress} EON={"Enroll Now"}/>
-                    <CourseCard id={courses[3]._id} CourseImage={courses[3].CourseImage.url} paid={courses[3].paid} price={courses[3].price} name={courses[3].name} desc={courses[3].desc} enrollments={courses[3].enrollments} setProgress={setProgress} EON={"Enroll Now"}/>
+                    <CourseCard id={courses[1]._id} CourseImage={courses[1].CourseImage.url} paid={courses[1].paid} price={courses[1].price} name={courses[1].name} desc={courses[1].desc} enrollments={courses[1].enrollments} setProgress={setProgress} EON={"Enroll Now"}/>
                     <CourseCard id={courses[2]._id} CourseImage={courses[2].CourseImage.url} paid={courses[2].paid} price={courses[2].price} name={courses[2].name} desc={courses[2].desc} enrollments={courses[2].enrollments} setProgress={setProgress} EON={"Enroll Now"}/> 
                 </>
             }
